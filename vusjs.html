@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <!--<h1> hello</h1>-->
+    <div id="input">
+        <textarea v-model="html"> </textarea>
+        <p v-html="html"></p>
+    </div>
+
+    <script src="vue.js"></script>
+    <script type="text/javascript">
+        new Vue ({
+            el:'#input',
+            data () {
+                return {
+                    html : ''
+
+                }
+            }
+        })
+
+    </script>
+
+
+</body>
+</html>
