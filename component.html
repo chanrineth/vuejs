@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Js</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1>Todos</h1>
+        <input type="text" v-model="newTodo" @keyup.enter="onClickAddNewTodo">
+        <button @click="onClickAddNewTodo">Add New Todo</button>
+        <ul>
+            <li v-for="todo in todos">{{ todo.name}}</li>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script type="text/javascript">
+
+        new Vue({
+            el: '#app',
+            data (){
+                return{
+                    todos: [
+                        {id: 1, name: 'Go to shopping'},
+                        {id: 2, name: 'Go home'},
+                        {id: 3, name: 'Learn Vuejs Framework'},
+                        {id: 4, name: 'Learn Laravel Framework'},
+                        {id: 5, name: 'Learn Neos'},
+                    ],
+                    newTodo: '',
+
+                }
+            },
+            methods: {
+                onClickAddNewTodo () {
+                    if (this.newTodo === '') {
+                        return 0
+                    }
+                    var newTodo = {
+//                        id: new Date(),
+                        name: this.newTodo
+                    }
+
+                    this.todos.push(newTodo)
+                    this.newTodo = ''
+                }
+            }
+
+        })
+
+
+
+    </script>
+
+</body>
+</html>
